@@ -21,3 +21,22 @@ let sidemenu = document.getElementById("sidemenu");
       function closemenu() {
         sidemenu.style.right = "-200px";
       }
+      /* ----------Collecting data from Contact Form------ */
+/* https://github.com/jamiewilson/form-to-google-sheets */
+const scriptURL =
+"https://script.google.com/macros/s/AKfycbwMXjXeS3nEDlceXIA4FTbY7J8yVuMHF2Ri0llWo7hPm1MVpe1YVm7W4k7CnUp7EPtA/exec";
+const form = document.forms["submit-to-google-sheet"];
+const msg = document.getElementById("msg");
+
+form.addEventListener("submit", (e) => {
+e.preventDefault();
+fetch(scriptURL, { method: "POST", body: new FormData(form) })
+  .then((response) => {
+    msg.innerHTML = "Message sent successfully";
+    setTimeout(function () {
+      msg.innerHTML = "";
+    }, 5000);
+    form.reset();
+  })
+  .catch((error) => console.error("Error!", error.message));
+});
