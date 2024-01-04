@@ -315,12 +315,15 @@ form .btn2{
   margin-top: 20px;
 }
 /* -------responsive------ */
+nav .fa-solid {
+  display: none;
+}
 @media only screen and (max-width: 600px){
   #header{
     background-image: url(Images/Mobile_Hero_Banner.svg);
 } 
 .header-text{
-    margin-top: 100%;
+    margin-top: 95%;
     font-size: 15px;    
 }
 .header-text h1{
@@ -328,6 +331,7 @@ form .btn2{
 }
 .header-text h1 span{
     color: #bbff00;
+    background-color: rgba(0,0,0,0.6);
 }
 nav .fa-solid {
   display: block;
